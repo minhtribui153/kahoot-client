@@ -1,3 +1,4 @@
+#! node
 const inquirer = require('inquirer');
 const Kahoot = require('kahoot.js-updated');
 const KahootError = require('./classes/KahootError');
