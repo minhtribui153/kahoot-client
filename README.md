@@ -1,4 +1,6 @@
 ## Kahoot Client
+> ⚠️ This Kahoot Client is not affiliated with Kahoot Inc.
+
 A Kahoot Client designed for Terminals.
 
 ![Kahoot Lobby](https://cdn.discordapp.com/attachments/846536985715933194/939464119428456508/unknown.png)
@@ -16,4 +18,4 @@ npm install -g kahoot-client
 
 Run the client using `kahoot-client`
 
-> Developed by Minh Tri Bui. [MIT License](./LICENSE)
+> Developed by NoCli Development Team. [MIT License](./LICENSE).
