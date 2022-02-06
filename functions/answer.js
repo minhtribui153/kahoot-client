@@ -1,3 +1,4 @@
+const KahootClient = require("../classes/KahootClient");
 const KahootError = require("../classes/KahootError");
 
 /**
@@ -16,7 +17,7 @@ module.exports.getCorrectChoices = (numberOfChoices) => {
 
 module.exports.result = {
     /**
-     * @param {{ username: string, kahoot_pin: any }} user
+     * @param {KahootClient} user
      * @param {*} question
      */
     status: (user, question) => {
@@ -33,7 +34,7 @@ module.exports.result = {
         console.log(`${words[Math.floor(Math.random() * words.length)]} Waiting for others to answer...\n`);
     },
     /**
-     * @param {{ username: string, kahoot_pin: any }} user
+     * @param {KahootClient} user
      * @param {*} question
      */
     quizEnd: (user, quiz) => {
