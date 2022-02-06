@@ -1,6 +1,6 @@
 {
   "name": "kahoot-client",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Kahoot Client designed for Terminals",
   "main": "index.js",
   "dependencies": {
@@ -238,12 +238,13 @@
     "Client"
   ],
   "bin": {
-    "kahoot-client": "./index.js"
+    "kahoot-client": "index.js"
   },
   "author": "tribui141108",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tribui141108/kahoot-client/issues"
   },
-  "homepage": "https://github.com/tribui141108/kahoot-client#readme"
+  "homepage": "https://github.com/tribui141108/kahoot-client#readme",
+  "devDependencies": {}
 }
