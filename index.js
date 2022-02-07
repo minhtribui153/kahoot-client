@@ -1,4 +1,4 @@
-#! node
+#!/usr/bin/env node
 const { setup, startClient } = require('./handlers');
 
 console.clear();

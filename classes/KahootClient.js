@@ -33,7 +33,6 @@ module.exports = class KahootClient extends Kahoot {
         });
         this.on('QuestionStart', (question) => {
             console.clear();
-            console.log(question);
             console.log(`Username: ${this.username} | PIN: ${this.kahoot_pin}\n`);
             console.log(`Question ${Math.floor(question.questionIndex + 1)}:\n`);
             if (question.type === 'quiz') {
