@@ -19,7 +19,9 @@ module.exports = class KahootClient extends Kahoot {
         this
             .join(this.kahoot_pin, this.username, false)
             .catch((err) => {
-                throw new KahootError(err, 'JOIN_FAILED');
+                console.clear();
+                console.error(`[ERROR] ${err.description}`)
+                process.exit(0);
             });
         this.on('Joined', () => {
             console.clear();
