@@ -34,12 +34,16 @@ module.exports = class KahootClient extends Kahoot {
             console.log('Quiz started!\nGet ready!');
         });
         this.on('QuestionStart', (question) => {
+            
             console.clear();
             console.log(`Username: ${this.username} | PIN: ${this.kahoot_pin}\n`);
-            console.log(`Question ${Math.floor(question.questionIndex + 1)}:\n`);
+            console.log(`Question ${Math.floor(question.questionIndex + 1)}:`);
+            if (question.title) {
+                console.log(`${question.title}\n`)
+            }
             if (question.type === 'quiz') {
                 if (question.layout === "CLASSIC") {
-                    const correctChoices = answer.getCorrectChoices(question.quizQuestionAnswers[question.questionIndex]);
+                    const correctChoices = answer.getCorrectChoices(question);
 
                     const prompter = inquirer.prompt([
                         {
@@ -64,7 +68,6 @@ module.exports = class KahootClient extends Kahoot {
                         question.answer(parseInt(answers.answer));
                         answer.result.status(this, question);
                     });
-                    
                 }
             } else if (question.type === 'open_ended') {
                 const prompter = inquirer.prompt([
@@ -79,7 +82,7 @@ module.exports = class KahootClient extends Kahoot {
                     answer.result.status(this, question);
                 });
             } else if (question.type === 'multiple_select_quiz') {
-                const correctChoices = answer.getCorrectChoices(question.quizQuestionAnswers[question.questionIndex]);
+                const correctChoices = answer.getCorrectChoices(question);
 
                 const prompter = inquirer.prompt([
                     {
@@ -131,3 +134,11 @@ module.exports = class KahootClient extends Kahoot {
         });
     }
 }
+/*
+choices: [
+    { answer: 'Tiger' },
+    { answer: 'Rabbit' },
+    { answer: 'Ox' },
+    { answer: 'Rat' }
+  ],
+*/

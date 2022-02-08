@@ -1,18 +1,31 @@
 const KahootClient = require("../classes/KahootClient");
 const KahootError = require("../classes/KahootError");
 
-/**
- * 
- * @param {number} numberOfChoices 
- */
-module.exports.getCorrectChoices = (numberOfChoices) => {
+module.exports.getCorrectChoices = (question) => {
     const correctChoices = [];
 
-    for (let i = 0; i < numberOfChoices; i++) {
+    for (let i = 0; i < question.quizQuestionAnswers[question.questionIndex]; i++) {
         correctChoices.push(this.choices.default[i]);
     }
 
-    return correctChoices;
+    let counter = 0;
+    const correctChoices2 = [];
+    for (const correctChoice of correctChoices) {
+        if (question.choices) {
+            correctChoices2.push({
+                name: correctChoice.name + ` ${question.choices[counter].answer}`,
+                value: correctChoice.value,
+            })
+        } else {
+            correctChoices2.push({
+                name: correctChoice.name,
+                value: correctChoice.value,
+            });
+        }
+        counter += 1;
+    }
+
+    return correctChoices2;
 }
 
 module.exports.result = {
